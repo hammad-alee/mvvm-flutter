@@ -1,4 +1,4 @@
-# mvvm
+# Flutter MVVM Architecture
 
 A new Flutter project.
 
