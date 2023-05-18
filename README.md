@@ -1,6 +1,6 @@
 # Flutter MVVM Architecture
 
-A new Flutter project.
+A Flutter project to understand mvvm Architecture using solid principle.
 
 ## Getting Started
 
