@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mvvm/utils/routes/routes_name.dart';
+import '../utils/utils.dart';
 
 class LoginScr extends StatefulWidget {
   const LoginScr({super.key});
@@ -18,7 +18,8 @@ class _LoginScrState extends State<LoginScr> {
             Center(
               child: InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, RoutesName.home);
+                  Utils.toastMessage('Test');
+                  // Navigator.pushNamed(context, RoutesName.home);
                 },
                 child: const Text('Naviagte To Home'),
               ),
