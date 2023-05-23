@@ -33,7 +33,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 const Center(
                   child: Icon(
-                    Icons.face,
+                    Icons.face_5,
                     size: 120,
                   ),
                 ),
@@ -84,6 +84,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 RoundButton(
                   title: 'Sign in',
+                  loading: authViewModel.loading,
                   onTap: () {
                     if (emailCon.text.trim().isEmpty) {
                       Utils.toastMessage("Must Enter Email");
@@ -98,7 +99,7 @@ class _LoginViewState extends State<LoginView> {
                       'password': passCon.text.trim()
                     };
 
-                    authViewModel.loginApi(data);
+                    authViewModel.loginApi(context, data);
                   },
                 )
               ],
