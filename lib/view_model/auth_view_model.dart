@@ -14,7 +14,7 @@ class AuthViewModel with ChangeNotifier {
   final myRepo = AuthRepository();
   Future<void> loginApi(context, data) async {
     setLoading(true);
-    var res = myRepo.loginApi(data).then((value) {
+    myRepo.loginApi(data).then((value) {
       setLoading(false);
       Navigator.pushNamed(context, RoutesName.home);
     }).onError((error, stackTrace) {
