@@ -1,19 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mvvm/res/component/round_button.dart';
-import 'package:mvvm/utils/routes/routes_name.dart';
-import 'package:mvvm/view_model/auth_view_model.dart';
 import 'package:provider/provider.dart';
-import '../utils/utils.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+import '../res/component/round_button.dart';
+import '../utils/utils.dart';
+import '../view_model/auth_view_model.dart';
+
+class RegisterView extends StatefulWidget {
+  const RegisterView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<RegisterView> createState() => _RegisterViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _RegisterViewState extends State<RegisterView> {
   TextEditingController emailCon = TextEditingController();
   TextEditingController passCon = TextEditingController();
 
@@ -34,12 +34,12 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 const Center(
                   child: Icon(
-                    Icons.face_5,
+                    Icons.app_registration,
                     size: 120,
                   ),
                 ),
                 const Text(
-                  'Welcome Back!',
+                  'Register Account!',
                   style: TextStyle(fontSize: 28, fontWeight: FontWeight.w900),
                 ),
                 const SizedBox(
@@ -84,7 +84,7 @@ class _LoginViewState extends State<LoginView> {
                   height: 40,
                 ),
                 RoundButton(
-                  title: 'Sign in',
+                  title: 'Register',
                   loading: authViewModel.loading,
                   onTap: () {
                     if (emailCon.text.trim().isEmpty) {
@@ -100,7 +100,7 @@ class _LoginViewState extends State<LoginView> {
                       'password': passCon.text.trim()
                     };
 
-                    authViewModel.loginApi(context, data);
+                    authViewModel.registerApi(context, data);
                   },
                 ),
                 const SizedBox(
@@ -108,17 +108,17 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 MaterialButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, RoutesName.register);
+                    Navigator.pop(context);
                   },
                   child: const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'New Here? ',
+                          'Already have an account? ',
                           style: TextStyle(color: Colors.black45),
                         ),
                         Text(
-                          'Register',
+                          'Login',
                           style: TextStyle(color: Colors.black),
                         )
                       ]),
